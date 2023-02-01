@@ -1,5 +1,4 @@
 from PIL import Image
-import PIL
 from cog import BasePredictor, Input, Path
 import base64
 from io import BytesIO
@@ -11,19 +10,9 @@ import yaml
 import tqdm
 import torch
 import numpy as np
-import cv2
-import logging
 import os
-import sys
-import traceback
 
 from saicinpainting.evaluation.utils import move_to_device
-from saicinpainting.evaluation.refinement import refine_predict
-os.environ['OMP_NUM_THREADS'] = '1'
-os.environ['OPENBLAS_NUM_THREADS'] = '1'
-os.environ['MKL_NUM_THREADS'] = '1'
-os.environ['VECLIB_MAXIMUM_THREADS'] = '1'
-os.environ['NUMEXPR_NUM_THREADS'] = '1'
 
 
 cache_dir = "./cache"
